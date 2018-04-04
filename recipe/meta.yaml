@@ -15,7 +15,7 @@ source:
     - 0002-shared-breaks-build-on-OSX.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -35,12 +35,10 @@ requirements:
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX cryptominisat  # [not win]
-    - conda inspect objects -p $PREFIX cryptominisat  # [osx]
-    - echo -e '1 0\n-1 0' | cryptominisat | grep UNSATISFIABLE
-    - echo -e '1 0\n1 -1 0' | cryptominisat | grep SATISFIABLE
-    - echo -e '1 0\n-1 0' | cryptominisat_simple | grep UNSATISFIABLE
-    - echo -e '1 0\n1 -1 0' | cryptominisat_simple | grep SATISFIABLE
+    - conda inspect linkages -p $PREFIX cryptominisat5  # [not win]
+    - conda inspect objects -p $PREFIX cryptominisat5  # [osx]
+    - echo -e '1 0\n-1 0' | cryptominisat5 | grep UNSATISFIABLE
+    - echo -e '1 0\n1 -1 0' | cryptominisat5 | grep SATISFIABLE
 
 about:
   home: https://github.com/msoos/cryptominisat
