@@ -20,6 +20,3 @@ cmake \
   ..
 
 make -j${CPU_COUNT} install
-
-ln -s "$PREFIX/bin/cryptominisat5_simple" "$PREFIX/bin/cryptominisat_simple"
-ln -s "$PREFIX/bin/cryptominisat5" "$PREFIX/bin/cryptominisat"
