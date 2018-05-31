@@ -32,6 +32,8 @@ requirements:
     - m4ri 20140914
 
 test:
+  imports:
+    - pycryptosat
   commands:
     - conda inspect linkages -p $PREFIX cryptominisat  # [not win]
     - conda inspect objects -p $PREFIX cryptominisat  # [osx]
