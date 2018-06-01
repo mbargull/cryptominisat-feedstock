@@ -14,6 +14,8 @@ source:
 build:
   number: 0
   skip: True  # [win]
+  run_exports:
+   - {{ pin_compatible('cryptominisat', max_pin='x.x') }}
 
 requirements:
   build:
