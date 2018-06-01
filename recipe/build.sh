@@ -14,6 +14,7 @@ fi
 cmake \
   "-DCMAKE_INSTALL_PREFIX=$PREFIX" \
   -DENABLE_PYTHON_INTERFACE=ON \
+  -DFORCE_PYTHON2=`[[ $PY3K == 1 ]] && echo OFF || echo ON` \
   -DENABLE_TESTING=OFF \
   ..
 
