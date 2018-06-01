@@ -1,6 +1,6 @@
 {% set name = "cryptominisat" %}
-{% set version = "5.0.2" %}
-{% set sha256 = "d1815338d0563cc4132b4a72540f1c3485cd3c9efa3b38af4b2ebf99e0c567c7" %}
+{% set version = "5.6.0" %}
+{% set sha256 = "bdcfd906defaac03ceaa213bcd0cc52694a75138042b66b34a9fc8fc2202e3c1" %}
 
 package:
   name: '{{ name|lower }}'
@@ -10,30 +10,32 @@ source:
   fn: {{ version }}.tar.gz
   url: https://github.com/msoos/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-Use-CFLAGS-LDFLAGS-as-reported-by-sysconfig.patch
-    - 0002-shared-breaks-build-on-OSX.patch
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win]
+  run_exports:
+   - {{ pin_compatible('cryptominisat', max_pin='x.x') }}
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('cxx') }}
     - cmake
+  host:
     - python
     - setuptools
-    - boost-cpp 1.66.0
-    - zlib 1.2.11
+    - boost-cpp 1.67.0
+    - zlib
     - m4ri 20140914
   run:
     - python
-    - boost-cpp 1.66.0
-    - zlib 1.2.11
+    - boost-cpp 1.67.0
+    - zlib
     - m4ri 20140914
 
 test:
+  imports:
+    - pycryptosat
   commands:
     - conda inspect linkages -p $PREFIX cryptominisat  # [not win]
     - conda inspect objects -p $PREFIX cryptominisat  # [osx]
