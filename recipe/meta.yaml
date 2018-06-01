@@ -24,12 +24,12 @@ requirements:
   host:
     - python
     - setuptools
-    - boost-cpp
+    - boost-cpp 1.67.0
     - zlib
     - m4ri 20140914
   run:
     - python
-    - boost-cpp
+    - boost-cpp 1.67.0
     - zlib
     - m4ri 20140914
 
