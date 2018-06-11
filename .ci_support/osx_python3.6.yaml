@@ -1,7 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-boost_cpp:
-- 1.66.0
 cxx_compiler:
 - toolchain_cxx
 macos_machine:
