@@ -1,6 +1,6 @@
 {% set name = "cryptominisat" %}
-{% set version = "5.6.2" %}
-{% set sha256 = "df7390fa57fda0ab58d717e2eee1c9a714722b0b641e8d7955c74b7373615a68" %}
+{% set version = "5.6.3" %}
+{% set sha256 = "c2fb4912cc8d8f3135af94581f11f30fd82347ee15ad8fb905e12a499e6fa87f" %}
 
 package:
   name: '{{ name|lower }}'
