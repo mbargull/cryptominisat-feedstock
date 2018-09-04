@@ -1,21 +1,18 @@
-{% set name = "cryptominisat" %}
-{% set version = "5.6.4" %}
-{% set sha256 = "172ab480e8f6bfc4b92a94b607b7c4764e7ebd305a6d3df0cb687a27ac134c71" %}
+{% set version = "5.6.5.dev0" %}
+{% set commit = "fb61d41e37820e062ecc3867ac6ae20dc3e6896c" %}
+{% set sha256 = "903a082cafbfc18a1d4f4b41ebe8df6dae13aed02537d5d817df12c68ee3a165" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: pycryptosat
+  version: {{ version }}
 
 source:
-  fn: {{ version }}.tar.gz
-  url: https://github.com/msoos/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/msoos/cryptominisat/archive/{{ commit }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   skip: True  # [win]
-  run_exports:
-   - {{ pin_compatible('cryptominisat', max_pin='x.x') }}
 
 requirements:
   build:
@@ -24,23 +21,19 @@ requirements:
   host:
     - python
     - setuptools
-    - boost-cpp 1.67.0
     - zlib
-    - m4ri 20140914
   run:
     - python
-    - boost-cpp 1.67.0
     - zlib
-    - m4ri 20140914
 
 test:
   imports:
     - pycryptosat
   commands:
-    - conda inspect linkages -p $PREFIX cryptominisat  # [not win]
-    - conda inspect objects -p $PREFIX cryptominisat  # [osx]
-    - echo -e '1 0\n-1 0' | cryptominisat5 | grep UNSATISFIABLE
-    - echo -e '1 0\n1 -1 0' | cryptominisat5 | grep SATISFIABLE
+    - conda inspect linkages -p $PREFIX pycryptosat  # [not win]
+    - conda inspect objects -p $PREFIX pycryptosat  # [osx]
+    - echo -e '1 0\n-1 0' | cryptominisat5_simple | grep UNSATISFIABLE
+    - echo -e '1 0\n1 -1 0' | cryptominisat5_simple | grep SATISFIABLE
 
 about:
   home: https://github.com/msoos/cryptominisat
