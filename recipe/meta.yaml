@@ -31,6 +31,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - cmake
+        - make
       host:
         - zlib
     test:
