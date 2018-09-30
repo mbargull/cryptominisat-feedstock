@@ -7,8 +7,6 @@ channel_targets:
 cxx_compiler:
 - vs2015
 - vs2015
-gpl_ok:
-- 'False'
 pin_run_as_build:
   boost:
     max_pin: x.x.x

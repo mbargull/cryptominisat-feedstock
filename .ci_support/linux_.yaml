@@ -8,8 +8,6 @@ cxx_compiler:
 - toolchain_cxx
 docker_image:
 - condaforge/linux-anvil
-gpl_ok:
-- 'False'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
